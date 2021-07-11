@@ -60,13 +60,13 @@ void create_node_after_value(node *ptr, int value)
 {
   node *current = head;
   node *previous = head;
-  cout << current << " " << previous << endl;
+  // cout<<current<<" "<<previous<<endl;
   int data_to_insert;
   cin >> data_to_insert;
   ptr->data = data_to_insert;
   // cout<<->data<<endl;
 
-  cout << previous->data << " ";
+  // cout<<previous->data<<" ";
   if (head == 0)
   {
     cout << " no node is there so creating at the start. ";
@@ -85,7 +85,51 @@ void create_node_after_value(node *ptr, int value)
     previous->next = ptr;
     ptr->next = current;
   }
-  cout << "end " << endl;
+  // cout<<"end "<<endl;
+}
+
+void create_node_after_times(node *ptr, int value)
+{
+  int i = 1;
+  node *current = head;
+  node *previous = head;
+  // cout<<current<<" "<<previous<<endl;
+  int data_to_insert;
+  cin >> data_to_insert;
+  ptr->data = data_to_insert;
+
+  if (head == 0)
+  {
+    head = ptr;
+    head->next = 0;
+  }
+  else if (value == 0)
+  {
+    ptr->next = head;
+    head = ptr;
+  }
+  else
+  {
+    while ((current->next != 0) && i != value)
+    {
+      previous = current;
+      current = current->next;
+      ++i;
+    }
+    if (current->next == 0 && i != value)
+    {
+      cout << "There is only " << i << " element in list.." << endl;
+      current->next = ptr;
+      ptr->next = 0;
+    }
+    else
+    {
+      previous = current;
+      current = current->next;
+      previous->next = ptr;
+      ptr->next = current;
+    }
+  }
 }
 
 // ****** (end) fuction for adding node at the end of linkedlist (ends here) *********
@@ -123,7 +167,7 @@ int main()
   create_node(&sth);
   showdata();
   cout << endl;
-  create_node_after_value(&seth, 10);
+  create_node_after_times(&seth, 6);
   // cout<<fst.data<<" "<<fst.next<<endl;
   // cout<<snd.data<<" "<<snd.next;
   showdata();
