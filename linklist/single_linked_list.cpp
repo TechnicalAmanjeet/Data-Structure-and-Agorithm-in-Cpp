@@ -52,10 +52,10 @@ void showdata()
 int main()
 {
   node fst, snd;
-  // create_node(&fst);
-  // create_node(&snd);
-  // cout<<fst.data<<" "<<fst.next<<endl;
-  // cout<<snd.data<<" "<<snd.next;
+  create_node(&fst);
+  create_node(&snd);
+  cout<<fst.data<<" "<<fst.next<<endl;
+  cout<<snd.data<<" "<<snd.next;
   showdata();
   return 0;
 }
