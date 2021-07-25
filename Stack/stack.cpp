@@ -1,5 +1,9 @@
+
+// ********* Stack implementation by using Array ***********
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 class stack_main
 {
