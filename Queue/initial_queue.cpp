@@ -148,6 +148,7 @@ int main(){
                 cout<<endl;
                 qu.push(data);
             }
+            break;
         case 2:
             qu.push();
             break;
