@@ -1,3 +1,3 @@
-void POP(){
-//     if()
+void adt::push(){
+//     if(isfull()) 
 // }
