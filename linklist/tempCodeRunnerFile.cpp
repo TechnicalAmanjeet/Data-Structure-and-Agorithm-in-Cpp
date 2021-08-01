@@ -1,3 +1,7 @@
-void adt::push(){
-//     if(isfull()) 
-// }
+  while(t--){
+      ld.push(); 
+  }
+  t=3;
+  while(t--){
+      ld.insert();
+  }
