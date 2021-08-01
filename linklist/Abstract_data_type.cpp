@@ -21,6 +21,8 @@ class adt{
         void remove(int n);
         void change(int n,int data);
         int peak(int n);
+        void reverse_display();
+        void reverse();
         // void show(){
         //     cout<<arr[0]<<" "<<arr[1]<<" "<<arr[2]<<" "<<arr[3]<<" "<<arr[4]<<" "<<endl;
         // }
@@ -179,6 +181,31 @@ int adt::peak(int n){
     return 0;
 }
 
+void adt::reverse_display(){
+    if(isempty()) cout<<"Nothing to display. i.e underflow"<<endl;
+    else{
+        cout<<"Reversed List is : ";
+        for(int i=end;i>=0;--i){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+void adt::reverse(){
+    if(isempty()) cout<<"NOthing to reverse. i.e underflow"<<endl;
+    else{
+        int* new_list = new int(full);
+        for(int i=0;i<=end;++i){
+            new_list[i]=arr[end-i];
+        }
+        int *temp = arr;
+        arr = new_list;
+        delete(temp);
+        display();
+    }
+}
+
 int main(){
     int* arr= new int(1);
     adt ad(arr);
@@ -194,4 +221,8 @@ int main(){
     ad.remove(50);
     ad.remove(4);
     ad.remove(1);
+    ad.reverse_display();
+    cout<<"\n Reversed list is : "<<endl;
+    ad.reverse();
+    ad.reverse();
 }
