@@ -219,9 +219,8 @@ void Linkedlist::displayReverse(Node* ptrtonode){
 }
 
 void Linkedlist::displayRecursive(Node* ptrtonode){
-   cout<<ptrtonode->Data<<" ";
-   cout<<"aman";
    if(ptrtonode==NULL) return;
+   cout<<ptrtonode->Data<<" ";
    displayReverse(ptrtonode->Next);
 }
 
@@ -246,21 +245,13 @@ void Linkedlist::TotalMember(){
 
 int main(){
   Linkedlist ld;
-  int t=3;
+  int t=4;
   while(t--){
       ld.push(); 
   }
-  t=3;
-  while(t--){
-      ld.insert();
-  } 
-    // ld.displayReverse(ld.head);
-    // ld.display();
-    // // ld.displayRecursive(ld.head);
-    // // ld.displayReverse(ld.head);
-    // ld.displayRecursive(ld.head);
-    ld.Reverse();
-    ld.display();
-    ld.push();
-    ld.insert();
+//   t=3;
+//   while(t--){
+//       ld.insert();
+//   } 
+    ld.displayRecursive(ld.head);
 }
