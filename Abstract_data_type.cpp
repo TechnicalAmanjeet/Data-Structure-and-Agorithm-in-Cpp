@@ -208,54 +208,21 @@ void adt::reverse(){
 
 int main(){
     int* arr= new int(1);
-    adt ad(arr) ;
-    while(true){
-        cout<<"\n        ******* Abstract Data Type **************\n\n";
-        cout<<"Press 0 : exit program. \n Press 1 : to check full or not \n Press 2 : to Display \n Press 3 : Append operation \n Press 4 : insert operation \n Press 5 : Pop Operation \n Press 6 : Remove Operation \n Press 7 : Change operation \n Press 8 : peak operation \n Press 9 : Reverse display list. \n Press 10 : Reverse list. "<<endl;
-        int ch;
-        cin>>ch;
-        switch(ch){
-            case 0: 
-                cout<<"******* Thank you so much for using my program *********";
-                return;
-            case 1: 
-                ad.isfull();
-                break;
-            case 2:
-                ad.display();
-                break;
-            case 3:
-                ad.append();
-                break;
-            case 4:
-                ad.insert();
-                break;
-            case 5:
-                ad.pop();
-                break;
-            case 6:
-                ad.remove();
-                break;
-            case 7:
-                int pos,data;
-                cout<<"Enter positon and data : ";
-                cin>>pos,data;
-                ad.change(pos,data);
-                break;
-            case 8:
-                int n;
-                cout<<"Enter postion to peak : ";
-                cin>>n;
-                ad.peak(n);
-                break;
-            case 9:
-                ad.reverse_display();
-                break;
-            case 10:
-                ad.reverse();
-                break;
-            default :
-                cout<<" YOu Enter wrong data. Press 0 to exit.."<<endl;
-        }
+    adt ad(arr);
+    int t=8;
+    while(t--){
+        ad.append();
     }
+    ad.insert(3);
+    ad.insert(5);
+    ad.pop();
+    ad.pop();
+    ad.remove();
+    ad.remove(50);
+    ad.remove(4);
+    ad.remove(1);
+    ad.reverse_display();
+    cout<<"\n Reversed list is : "<<endl;
+    ad.reverse();
+    ad.reverse();
 }

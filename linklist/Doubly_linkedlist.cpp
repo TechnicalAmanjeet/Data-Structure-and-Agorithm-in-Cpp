@@ -15,6 +15,7 @@ class dublin{
         dublin();
         bool isempty();
         void display();
+        void totalMember();
         void displayReverse();
         void push();
         void insert();
@@ -23,11 +24,25 @@ class dublin{
         void remove();
         void remove(int n);
         void change(int n,int data);
+        void reverse();
+        void peak(int n);
 };
 
 
 dublin::dublin(){
     cout<<"Doubly linkedlist created"<<endl;
+}
+
+void dublin::peak(int n){
+    Node *temp = Start;
+    int t=n;
+    if(n>count) cout<<"wrong choice"<<endl;
+    else{
+        while(n--){
+            temp = temp->next;
+    }
+    cout<<"Memer at "<<t<<" is "<<temp->data<<endl;
+    }
 }
 
 bool dublin::isempty(){
@@ -61,6 +76,10 @@ void dublin::displayReverse(){
     }
 }
 
+void dublin::totalMember(){
+    cout<<"Total Number in this list is "<<count<<"."<<endl;
+}
+
 void dublin::push(){
     int data;
     Node* new_node = new Node();
@@ -79,7 +98,7 @@ void dublin::push(){
     }
     End = new_node;
     display();
-    displayReverse();
+    // displayReverse();
 }
 
 void dublin::insert(){
@@ -224,14 +243,85 @@ void dublin::change(int n,int data){
     }
 }
 
-int main(){
-    dublin d;
-    d.display();
-    int t=5;
-    while(t--) d.insert();
-    d.remove(3);
-    // d.display();
-    d.remove(1);
-    d.remove(3);
-    d.display();
+void dublin::reverse(){
+    if(isempty()) cout<<"NOthing to reverse"<<endl;
+    else{
+        Node *temp = Start->next;
+        temp->prev = temp->next;
+        temp->next=NULL;
+    while(temp->next !=NULL){
+        swap(temp->prev,temp->next);
+        temp = temp->next;
+    }
+    swap(Start,End);
+    temp->next = temp->prev;
+    temp->prev = Start;
+    }
+    display();
+    cout<<"List has been reversed.";
 }
+
+int main(){
+    dublin ad;
+    while(true){
+        cout<<"\n        ******* Doubly linked list **************\n\n";
+        cout<<"Press 0 : exit program. \n Press 1 : total member in list \n Press 2 : to Display \n Press 3 : Append operation \n Press 4 : insert operation \n Press 5 : Pop Operation \n Press 6 : Remove Operation \n Press 7 : Change operation \n Press 8 : peak operation \n Press 9 : Reverse display list. \n Press 10 : Reverse list. "<<endl;
+        int ch;
+        cout<<"Enter you choice : ";
+        cin>>ch;
+        switch(ch){
+            case 0: 
+                cout<<"******* Thank you so much for using my program *********"<<endl;
+                return 0;
+            case 1: 
+                ad.totalMember();
+                break;
+            case 2:
+                ad.display();
+                break;
+            case 3:
+                ad.push();
+                break;
+            case 4:
+                ad.insert();
+                break;
+            case 5:
+                ad.pop();
+                break;
+            case 6:
+                ad.remove();
+                break;
+            case 7:
+                int pos,data;
+                cout<<"Enter positon and data : ";
+                cin>>pos,data;
+                ad.change(pos,data);
+                break;
+            case 8:
+                int n;
+                cout<<"Enter postion to peak : ";
+                cin>>n;
+                ad.peak(n);
+                break;
+            case 9:
+                ad.displayReverse();
+                break;
+            case 10:
+                ad.reverse();
+                break;
+            default :
+                cout<<" YOu Enter wrong data. Press 0 to exit.."<<endl;
+        }
+}
+ }
+        // bool isempty();
+        // void display();
+        // void totalMember();
+        // void displayReverse();
+        // void push();
+        // void insert();
+        // void insert(int n);
+        // void pop();
+        // void remove();
+        // void remove(int n);
+        // void change(int n,int data);
